@@ -68,7 +68,7 @@ namespace CreateFloorMVVM.ViewModels
             {
                 _selectionFloorType = value as FloorType;
                 OnPropertyChanged();
-                WidthSelectionFloorType = getWidthSelectionFloor();
+                WidthSelectionFloorType = GetWidthSelectionFloor();
             }
         }
         public ObservableCollection<FloorType> FloorTypes
@@ -123,7 +123,7 @@ namespace CreateFloorMVVM.ViewModels
                                     .ToList());
 
             this._roomsListView = new ListCollectionView(RoomsOnActiveView);
-            this._roomsListView.Filter = roomNameFilter;
+            this._roomsListView.Filter = RoomNameFilter;
 
             FloorTypes = new ObservableCollection<FloorType>(new FilteredElementCollector(document)
                                     .OfCategory(BuiltInCategory.OST_Floors)
@@ -180,34 +180,34 @@ namespace CreateFloorMVVM.ViewModels
         {
             get
             {
-                return new DelegateCommand((obj) => createFloors());
+                return new DelegateCommand((obj) => CreateFloors());
             }
         }
         #endregion
 
         #region Private Commands
 
-        private void createFloors()
+        private void CreateFloors()
         {
             using (Transaction tr = new Transaction(document, "CreateFloors"))
             {
                 tr.Start();
-                CreateFloorMVVM.Utils.FloorBuilder.CreateFloorInRooms(getSelectionRooms(), SelectionFloorType.Id);
+                CreateFloorMVVM.Utils.FloorBuilder.CreateFloorInRooms(GetSelectionRooms(), SelectionFloorType.Id);
                 tr.Commit();
             }
         }
-        private bool roomNameFilter(object item)
+        private bool RoomNameFilter(object item)
         {
             if (String.IsNullOrEmpty(SearchString))
                 return true;
             else
                 return ((item as RoomViewModel).Name.IndexOf(SearchString, StringComparison.OrdinalIgnoreCase) >= 0);
         }
-        private List<Room> getSelectionRooms()
+        private List<Room> GetSelectionRooms()
         {
             return RoomsOnActiveView.Where(it => it.IsSelected).Select(it => it.RevitRoom).ToList();
         }
-        private double getWidthSelectionFloor()
+        private double GetWidthSelectionFloor()
         {
             var selectionFloorWidth = SelectionFloorType.get_Parameter(BuiltInParameter.FLOOR_ATTR_DEFAULT_THICKNESS_PARAM).AsDouble();
             return UnitUtils.ConvertFromInternalUnits(selectionFloorWidth, UnitTypeId.Millimeters);

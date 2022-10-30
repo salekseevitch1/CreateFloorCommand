@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Architecture;
+using RevitExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +18,19 @@ namespace CreateFloorMVVM.Utils
             foreach (Room room in rooms)
             {
                 List<Solid> floorSolids = new List<Solid>();
-                var points = MyGeometryUtils.RemovePointsOnSameLine(MyGeometryUtils.OnlyUniquePoints(MyRoomUtils.GetRoomBoundariesPoints(room)));
-                var roomLoop = MyGeometryUtils.CreateCurveLoopByPoints(points);
-                var roomSolid = MyGeometryUtils.CreateSolidByCurveLoop(roomLoop);
+
+                var roomSolid = room.GetRoomBoundariesPoints().GetOnlyUniquePoints().RemovePointsOnSameLine().CreateCurveLoopByPoints().CreateSolidByCurveLoop();
 
                 floorSolids.Add(roomSolid);
 
-                foreach (var boundaries in MyRoomUtils.GetRoomBoundaries(room.Document, room))
+                foreach (var boundaries in room.GetRoomBoundaries())
                 {
                     if (boundaries.Value == null || !(boundaries.Value is Wall)) continue;
 
-                    var doorsInRoom = FilterDoorsByRoom(room, GetDoorsInWall(boundaries.Value as Wall));
+                    var curve = boundaries.Key as Curve;
+                    var wall = boundaries.Value as Wall;
+
+                    var doorsInRoom = room.FilterDoorsByRoom(wall.GetDoorsInWall());
 
                     foreach (var door in doorsInRoom)
                     {
@@ -35,13 +38,13 @@ namespace CreateFloorMVVM.Utils
 
                         if (doorLoop == null) continue;
 
-                        var solid = MyGeometryUtils.CreateSolidByCurveLoop(new List<CurveLoop> { doorLoop });
+                        var solid = new List<CurveLoop> { doorLoop }.CreateSolidByCurveLoop();
                         floorSolids.Add(solid);
                     }
                 }
 
-                var floorSolid = MyGeometryUtils.UnionSolids(floorSolids);
-                var floorLoops = MyGeometryUtils.GetBoundaryLargestFaceOfSolid(floorSolid);
+                var floorSolid = floorSolids.UnionSolids();
+                var floorLoops = floorSolid.GetBoundaryLargestFaceOfSolid();
 
                 var floor = Floor.Create(document, floorLoops, floorTypeId, room.LevelId);
 
@@ -87,37 +90,6 @@ namespace CreateFloorMVVM.Utils
             catch (Exception) { return null; }
 
             return doorLoop;
-        }
-
-        private static List<FamilyInstance> GetDoorsInWall(Wall wall)
-        {
-            var doors = new List<FamilyInstance>();
-            var dependentDoors = wall.GetDependentElements(new ElementCategoryFilter(BuiltInCategory.OST_Doors));
-            if (dependentDoors.Count != 0)
-            {
-                foreach (var dependentDoorId in dependentDoors)
-                {
-                    doors.Add(wall.Document.GetElement(dependentDoorId) as FamilyInstance);
-                }
-            }
-            return doors;
-        }
-
-        private static List<FamilyInstance> FilterDoorsByRoom(Room room, List<FamilyInstance> doors)
-        {
-            var filteredDoors = new List<FamilyInstance>();
-            int roomId = room.Id.IntegerValue;
-
-            foreach (var door in doors)
-            {
-                if (door.ToRoom != null && door.ToRoom.Id.IntegerValue == roomId) 
-                    filteredDoors.Add(door);
-
-                else if (door.FromRoom != null && door.FromRoom.Id.IntegerValue == roomId) 
-                    filteredDoors.Add(door);
-            }
-
-            return filteredDoors;
         }
 
         #endregion
