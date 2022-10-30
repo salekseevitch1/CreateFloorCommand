@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace CreateFloorMVVM.Core
+namespace CreateFloor.Core
 {
     public class DelegateCommand : ICommand
     {

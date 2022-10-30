@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace CreateFloorMVVM.Core
+namespace CreateFloor.Core
 {
     public class BaseNotifyPropertyChanged : INotifyPropertyChanged
     {
