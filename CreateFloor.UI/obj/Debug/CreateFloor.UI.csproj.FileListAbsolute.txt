@@ -1,0 +1,17 @@
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\bin\Debug\CreateFloor.UI.dll
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\bin\Debug\CreateFloor.UI.pdb
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\bin\Debug\CreateFloor.Core.dll
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\bin\Debug\CreateFloor.Extensions.dll
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\bin\Debug\CurvedEdgeButton.dll
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\bin\Debug\CustomTextBox.dll
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\bin\Debug\CreateFloor.Core.pdb
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\bin\Debug\CreateFloor.Extensions.pdb
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\obj\Debug\CreateFloor.UI.csproj.AssemblyReference.cache
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\obj\Debug\Views\CreateFloorForm.baml
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\obj\Debug\Views\CreateFloorForm.g.cs
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\obj\Debug\CreateFloor.UI_MarkupCompile.cache
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\obj\Debug\CreateFloor.UI.g.resources
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\obj\Debug\CreateFloor.UI.csproj.CoreCompileInputs.cache
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\obj\Debug\CreateFloor.UI.csproj.CopyComplete
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\obj\Debug\CreateFloor.UI.dll
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.UI\obj\Debug\CreateFloor.UI.pdb

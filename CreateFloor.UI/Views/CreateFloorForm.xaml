@@ -1,5 +1,5 @@
 ﻿<Window 
-    x:Class="CreateFloor.UI.Views.CreateFloorForm"
+    x:Class="CreateFloor.UI.Views.CreateFloorWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Width="600"

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BaseNotifyPropertyChanged.cs" />
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="IFloorBuilder.cs" />
     <Compile Include="IFloorCreateSettings.cs" />
     <Compile Include="IRoomListItem.cs" />
     <Compile Include="ISelectableItem.cs" />

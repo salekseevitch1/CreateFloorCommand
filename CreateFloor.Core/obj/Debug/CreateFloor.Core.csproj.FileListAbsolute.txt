@@ -1,0 +1,6 @@
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.Core\bin\Debug\CreateFloor.Core.dll
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.Core\bin\Debug\CreateFloor.Core.pdb
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.Core\obj\Debug\CreateFloor.Core.csproj.AssemblyReference.cache
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.Core\obj\Debug\CreateFloor.Core.csproj.CoreCompileInputs.cache
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.Core\obj\Debug\CreateFloor.Core.dll
+C:\Users\PietukhovSerhii\Desktop\CreateFloor\CreateFloor.Core\obj\Debug\CreateFloor.Core.pdb

@@ -25,6 +25,8 @@ namespace CreateFloor.UI.ViewModels
         private FloorType _selectionFloorType;
         private double _widthSelectionFloorType;
         private double _offsetByLevel;
+        private IFloorBuilder _floorBuilder;
+        private IFloorCreateSettings _floorCreateSettings;
         #endregion
 
         #region Public Propertys
@@ -115,9 +117,11 @@ namespace CreateFloor.UI.ViewModels
         #endregion
 
         #region Public Constructor
-        public CreateFloorViewModel(ExternalCommandData commandData)
+        public CreateFloorViewModel(ExternalCommandData commandData, IFloorBuilder floorBuilder, IFloorCreateSettings floorCreateSettings)
         {
             _document = commandData.Application.ActiveUIDocument.Document;
+            _floorBuilder = floorBuilder;
+            _floorCreateSettings = floorCreateSettings;
 
             RoomsOnActiveView = new ObservableCollection<RoomViewModel>(new FilteredElementCollector(_document, _document.ActiveView.Id)
                                     .OfCategory(BuiltInCategory.OST_Rooms)
@@ -196,12 +200,13 @@ namespace CreateFloor.UI.ViewModels
 
         private void CreateFloors()
         {
-            Settings = new FloorCreateSettings() { Rooms = GetSelectionRooms(), FloorTypeId = SelectionFloorType.Id };
+            _floorCreateSettings.Rooms = GetSelectionRooms();
+            _floorCreateSettings.FloorTypeId = SelectionFloorType.Id;
 
             using (Transaction tr = new Transaction(_document, "CreateFloors"))
             {
                 tr.Start();
-                Utils.FloorBuilder.CreateFloorInRooms(Settings);
+                _floorBuilder.CreateFloor(_floorCreateSettings);
                 tr.Commit();
             }
 

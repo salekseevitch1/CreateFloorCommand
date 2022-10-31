@@ -8,10 +8,10 @@ using System.Linq;
 
 namespace CreateFloor.UI.Utils
 {
-    internal class FloorBuilder
+    public class FloorBuilder : IFloorBuilder
     {
         #region Public methods
-        public static List<Floor> CreateFloorInRooms(IFloorCreateSettings floorCreateSettings)
+        public List<Floor> CreateFloor(IFloorCreateSettings floorCreateSettings)
         {
             List<Floor> floorList = new List<Floor>();
 

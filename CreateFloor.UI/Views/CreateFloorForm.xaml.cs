@@ -1,14 +1,20 @@
-﻿using System.Text.RegularExpressions;
+﻿using CreateFloor.UI.ViewModels;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace CreateFloor.UI.Views
 {
-    public partial class CreateFloorForm : Window
+    public partial class CreateFloorWindow : Window
     {
-        public CreateFloorForm()
+        private CreateFloorViewModel _createFloorViewModel;
+
+        public CreateFloorWindow(CreateFloorViewModel createFloorViewModel)
         {
-            InitializeComponent();
+            _createFloorViewModel = createFloorViewModel;
+            this.InitializeComponent();
+            this.DataContext = _createFloorViewModel;
         }
+
 
         private void IsTextAllowed(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
