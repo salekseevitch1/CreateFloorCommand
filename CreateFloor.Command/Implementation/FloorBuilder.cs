@@ -6,7 +6,7 @@ using CreateFloor.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CreateFloor.UI.Utils
+namespace CreateFloor.Command
 {
     public class FloorBuilder : IFloorBuilder
     {
@@ -47,7 +47,7 @@ namespace CreateFloor.UI.Utils
                 var floorLoops = floorSolid.GetBoundaryLargestFaceOfSolid();
 
                 var floor = Floor.Create(floorCreateSettings.Document, floorLoops, floorCreateSettings.FloorTypeId, room.LevelId);
-                floor.SetHeightAboutLevel(floorCreateSettings.OffsetByLevelInMillimeters);
+                floor.SetHeightAboutLevel(floorCreateSettings.BaseOffset);
 
                 floorList.Add(floor);
             }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace CreateFloor.Core
+namespace CreateFloor.UI.Models
 {
     public class BaseNotifyPropertyChanged : INotifyPropertyChanged
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace CreateFloor.Core
+namespace CreateFloor.UI.Models
 {
     public class DelegateCommand : ICommand
     {

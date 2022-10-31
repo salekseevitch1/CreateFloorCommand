@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.DB.Architecture;
 using CreateFloor.Core;
+using CreateFloor.UI.Models;
 
 namespace CreateFloor.UI.ViewModels
 {

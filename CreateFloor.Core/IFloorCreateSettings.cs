@@ -13,6 +13,6 @@ namespace CreateFloor.Core
         List<Room> Rooms { get; set; }
         ElementId FloorTypeId { get; set; }
         Document Document { get; }
-        double OffsetByLevelInMillimeters { get; set; }
+        double BaseOffset { get; set; }
     }
 }

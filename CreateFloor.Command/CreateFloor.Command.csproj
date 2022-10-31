@@ -72,6 +72,8 @@
     <Compile Include="AssemblyLoader.cs" />
     <Compile Include="CreateFloorAssembly.cs" />
     <Compile Include="CreateFloorCommand.cs" />
+    <Compile Include="Implementation\FloorBuilder.cs" />
+    <Compile Include="Implementation\FloorCreatSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

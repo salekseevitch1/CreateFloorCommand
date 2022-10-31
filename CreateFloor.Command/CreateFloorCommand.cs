@@ -3,8 +3,6 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using CreateFloor.UI.Views;
 using CreateFloor.UI.ViewModels;
-using CreateFloor.UI.Utils;
-using CreateFloor.UI.Models;
 using Prism.DryIoc;
 using CreateFloor.Core;
 using Prism.Ioc;
