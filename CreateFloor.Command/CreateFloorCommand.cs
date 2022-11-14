@@ -27,14 +27,6 @@ namespace CreateFloor.Command
             container.Resolve<CreateFloorWindow>().ShowDialog();
 
             return Result.Succeeded;
-
-
-            // Create ui
-            // Create ui
-            // Create ui
-            // Create ui
-            // Create ui
-            // Create ui
         }
     }
 }
